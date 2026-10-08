@@ -329,3 +329,6 @@ p+p{margin-top:14px}
   .menu-icons{display:flex;gap:12px;padding:16px 0 4px}
   .nav-links .menu-icons .bubble{padding:0;border:1.5px solid rgba(255,255,255,.6);font-size:0}
 }
+
+/* HERO HEADLINE: 3 lines */
+.hero h1{font-size:clamp(1.75rem,4.7vw,3.05rem);text-wrap:balance}
