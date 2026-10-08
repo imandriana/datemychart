@@ -370,3 +370,76 @@ p+p{margin-top:14px}
   .decor .deco:nth-child(3n){animation-duration:10s;animation-delay:-5s}
 }
 @keyframes twinkle{0%,100%{filter:none}50%{filter:brightness(1.25)}}
+
+
+/* ===== SUBMIT PAGE + FORM ===== */
+.submit-hero{padding:72px 0 84px}
+.submit-intro{max-width:780px}
+.submit-intro h1{font-size:clamp(1.9rem,5vw,3.2rem);margin-bottom:6px}
+.submit-intro .lead{max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 14px}
+.chips span{border:1.5px solid rgba(255,255,255,.5);border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:600}
+.form-section{padding:64px 0 90px}
+.form-card{
+  position:relative;z-index:1;max-width:760px;margin:0 auto;background:#fff;color:var(--purple-dark);
+  border:2px solid #e4d8f6;border-radius:28px;padding:34px 34px 38px;
+  box-shadow:0 22px 50px rgba(79,33,137,.14),0 8px 0 #efe6fb;
+}
+.progress{margin-bottom:26px}
+.progress-top{display:flex;justify-content:space-between;gap:12px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--purple);margin-bottom:10px}
+.progress-title{color:#6d5a8c;text-align:right}
+.bar{height:10px;background:#efe6fb;border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--purple),#8a4fd6);border-radius:999px;transition:width .35s ease}
+.step{border:0}
+.step-title{font-size:clamp(1.5rem,3.4vw,2rem);margin-bottom:6px}
+.note{background:#f5f0fc;border-left:4px solid var(--purple);border-radius:10px;padding:12px 16px;margin:10px 0 6px;font-size:.92rem;color:#4a3866}
+.field{margin-top:22px;border:0;padding:0;min-width:0}
+.field label,.field legend,.legend-like{display:block;font-weight:700;font-size:1rem;line-height:1.35;color:var(--purple-dark);margin-bottom:6px;padding:0}
+.opt{font-weight:500;color:#7a6a96;font-size:.85rem}
+.hint{font-size:.88rem;color:#6d5a8c;margin:0 0 8px}
+.field input[type=text],.field input[type=email],.field input[type=number],.field input[type=date],.field input[type=time],.field input[type=url],.field textarea{
+  width:100%;font:inherit;font-size:1rem;color:var(--purple-dark);background:#faf7fe;
+  border:2px solid #e0d3f4;border-radius:14px;padding:13px 15px;transition:border-color .15s,box-shadow .15s,background .15s;
+}
+.field textarea{resize:vertical;min-height:110px;line-height:1.5}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--purple);background:#fff;box-shadow:0 0 0 4px rgba(79,33,137,.14)}
+.field input::placeholder,.field textarea::placeholder{color:#a898c4}
+.choices{display:grid;gap:10px;margin-top:8px}
+.choice{display:flex;align-items:flex-start;gap:12px;background:#faf7fe;border:2px solid #e0d3f4;border-radius:14px;padding:12px 14px;cursor:pointer;font-weight:500;font-size:.97rem;line-height:1.4;transition:border-color .15s,background .15s}
+.choice:hover{border-color:#b79be0}
+.choice input{margin-top:3px;width:18px;height:18px;flex:none;accent-color:var(--purple)}
+.choice:has(input:checked){border-color:var(--purple);background:#f0e8fb}
+.choice.consent{font-weight:600}
+.form-error{margin-top:20px;background:#ffe9e6;border:2px solid #e8837f;color:#7a1f14;border-radius:12px;padding:12px 16px;font-weight:600}
+.form-nav{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:2px dashed #e4d8f6}
+.form-nav .btn{padding:13px 26px}
+.form-nav .btn-ghost{color:var(--purple);border-color:var(--purple)}
+.form-nav .btn-ghost:hover{background:var(--purple);color:#fff}
+.form-nav .btn:not(.btn-ghost){background:var(--purple);border-color:var(--purple);color:#fff;margin-left:auto}
+.form-nav .btn[disabled]{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.success{text-align:center;padding:26px 6px 8px}
+.success:focus{outline:none}
+.success h2{font-size:clamp(1.8rem,4.4vw,2.6rem);margin-bottom:12px}
+.success p{color:#4a3866;max-width:520px;margin:0 auto 12px}
+.success .small-line{color:#6d5a8c;margin-bottom:26px}
+.success .btn{background:var(--purple);border-color:var(--purple);color:#fff}
+.deco-static{width:64px;height:64px;color:var(--yellow);display:block;margin:0 auto 10px;filter:drop-shadow(0 0 0 var(--purple));stroke:var(--purple);stroke-width:2}
+@media (max-width:560px){
+  .form-card{padding:24px 18px 28px;border-radius:22px}
+  .progress-top{flex-direction:column;gap:2px}
+  .progress-title{text-align:left}
+  .form-nav .btn{flex:1;text-align:center;padding:13px 14px}
+  .submit-hero{padding:48px 0 56px}
+}
+@media (prefers-reduced-motion:reduce){.bar-fill{transition:none}}
+/* without JavaScript: show every step */
+.step[hidden]{display:none}
+
+/* make the hidden attribute always win */
+[hidden]{display:none !important}
+
+/* answer pills: beat the generic .field label rule */
+.field label.choice{display:flex;align-items:flex-start;gap:12px;margin:0;padding:13px 16px;font-weight:500;font-size:.97rem;line-height:1.4;color:var(--purple-dark)}
+.field label.choice.consent{font-weight:600}
+.field label.choice input{margin:2px 0 0}
