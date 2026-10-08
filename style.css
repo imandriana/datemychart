@@ -332,3 +332,41 @@ p+p{margin-top:14px}
 
 /* HERO HEADLINE: 3 lines */
 .hero h1{font-size:clamp(1.75rem,4.7vw,3.05rem);text-wrap:balance}
+
+
+/* ===== BRAND DECOR: hand-drawn stars, planets, moon ===== */
+.hero,.section,.footer{position:relative;overflow:hidden}
+.decor{position:absolute;inset:0;pointer-events:none;z-index:0}
+.deco{position:absolute;display:block;overflow:visible}
+.hero>.wrap,.section>.wrap,.footer>.wrap{position:relative;z-index:1}
+.squig{display:block;width:92px;height:11px;margin:2px 0 26px;color:var(--yellow)}
+.light .squig,.tint .squig{color:var(--purple)}
+.section .center .squig{margin-left:auto;margin-right:auto}
+
+/* paper grain on purple sections */
+.hero::after,.final::after,.footer::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.16;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.2 -.1'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+/* soft glow behind artwork */
+.hero-art{position:relative}
+.hero-art::before{
+  content:"";position:absolute;inset:-8% -6%;z-index:-1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(253,255,51,.22),rgba(253,255,51,0) 70%);
+}
+/* grain on light sections too */
+.section.tint::after,.section.light::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .13  0 0 0 0 .54  0 0 0 1.4 -.2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+@media (max-width:700px){
+  .deco.hm{display:none}
+  .deco{transform-origin:center}
+  .decor .deco{max-width:70px;height:auto}
+}
+@media (prefers-reduced-motion:no-preference){
+  .deco{animation:twinkle 6s ease-in-out infinite}
+  .decor .deco:nth-child(2n){animation-duration:8s;animation-delay:-2s}
+  .decor .deco:nth-child(3n){animation-duration:10s;animation-delay:-5s}
+}
+@keyframes twinkle{0%,100%{filter:none}50%{filter:brightness(1.25)}}
