@@ -88,7 +88,6 @@ p+p{margin-top:14px}
 /* HERO */
 .hero{padding:70px 0 80px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.hero h1 .y{display:block;margin-top:6px}
 .art{
   position:relative;border-radius:28px;overflow:hidden;aspect-ratio:1/1;
   box-shadow:0 30px 70px rgba(0,0,0,.4),0 0 0 6px rgba(253,255,51,.18);
